@@ -4,13 +4,24 @@ import React, { useContext } from "react";
 import { Layout } from "../components/Layout";
 import { Store } from "../utils/Store";
 import { XCircleIcon } from "@heroicons/react/outline";
+import { useRouter } from "next/router";
 
 export default function CartScreen() {
-  const { state } = useContext(Store);
+  const router = useRouter();
+  const { state, dispatch } = useContext(Store);
   const {
     cart: { cartItems },
   } = state;
   console.log(cartItems);
+
+  const updateCartHandler = (item, qty) => {
+    const quantity = Number(qty);
+    dispatch({ type: "CART_ADD_ITEM", payload: { ...item, quantity } });
+  };
+
+  const removeItemHandler = (item) => {
+    dispatch({ type: "CART_REMOVE_ITEM", payload: item });
+  };
 
   return (
     <Layout title="Shopping Cart">
@@ -48,10 +59,25 @@ export default function CartScreen() {
                         </a>
                       </Link>
                     </td>
-                    <td className="p-5 text-right">{item.quantity}</td>
+                    <td className="p-5 text-right">
+                      <td className="p-5 text-right">
+                        <select
+                          value={item.quantity}
+                          onChange={(e) =>
+                            updateCartHandler(item, e.target.value)
+                          }
+                        >
+                          {[...Array(item.countInStock).keys()].map((x) => (
+                            <option key={x + 1} value={x + 1}>
+                              {x + 1}
+                            </option>
+                          ))}
+                        </select>
+                      </td>
+                    </td>
                     <td className="p-5 text-right">${item.price}</td>
                     <td className="p-5 text-center">
-                      <button>
+                      <button onClick={() => removeItemHandler(item)}>
                         <XCircleIcon className="h-5 w-5"></XCircleIcon>
                       </button>
                     </td>
@@ -59,6 +85,24 @@ export default function CartScreen() {
                 ))}
               </tbody>
             </table>
+            <div className="card p-5">
+              <ul>
+                <li>
+                  <div className="pb-3 text-xl">
+                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}) :
+                    ${cartItems.reduce((a, c) => a + c.quantity * c.price, 0)}
+                  </div>
+                </li>
+                <li>
+                  <button
+                    onClick={() => router.push("/shipping")}
+                    className="primary-button w-full"
+                  >
+                    Check Out
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       )}
