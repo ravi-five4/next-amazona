@@ -16,3 +16,10 @@
 - Create Login Form
   1.install react hook form
   2.create Input box 3. add login button
+
+- Connect To MongodB
+  1. install mongoose
+  2. install mongodB or use mongodB atlas
+  3. save connection url in .env file
+  4. create dB utils file
+  5. Create sample users

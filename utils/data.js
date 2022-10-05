@@ -1,4 +1,32 @@
+import bcrypt from "bcryptjs";
+
 const data = {
+  users: [
+    {
+      name: "justdial",
+      email: "ravi@justdial.com",
+      password: bcrypt.hashSync("justdial"),
+      isAdmin: false,
+    },
+    {
+      name: "John",
+      email: "admin@example.com",
+      password: bcrypt.hashSync("123456"),
+      isAdmin: true,
+    },
+    {
+      name: "Jane",
+      email: "user@example.com",
+      password: bcrypt.hashSync("123456"),
+      isAdmin: false,
+    },
+    {
+      name: "Kajal",
+      email: "kajal@justdial.com",
+      password: bcrypt.hashSync("justdial"),
+      isAdmin: false,
+    },
+  ],
   products: [
     {
       name: "Free Shirt",

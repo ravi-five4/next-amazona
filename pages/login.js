@@ -42,7 +42,6 @@ export default function LoginScreen() {
           <div className="mb-4">
             <label htmlFor="password">Password</label>
             <input
-              type="[password]"
               type="password"
               {...register("password", {
                 required: "Please enter password",
