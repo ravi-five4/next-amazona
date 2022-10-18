@@ -42,5 +42,17 @@
   1. display address fields
   2. save address in context
 - Create Payment Method Screen
+
   1.  display payment methods
   2.  save payment method in context
+
+- Seed sample Products
+
+  1. Insert Sample products to mongodb
+  2. load products from db in home and product screen
+  3. check product count in stock in add to cart
+
+- Load Products from Mongodb
+  1. load products in home page from mongodb
+  2. load products in product page from mongodb
+  3. use product api to check count in stock in add to cart
