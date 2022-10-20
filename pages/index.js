@@ -8,6 +8,7 @@ import db from "../utils/db";
 import { Store } from "../utils/Store";
 
 export default function Home({ products }) {
+  console.log(products);
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
 

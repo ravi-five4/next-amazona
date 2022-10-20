@@ -10,6 +10,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 export default function ProductScreen(props) {
+  console.log(props);
   const { product } = props;
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
