@@ -48,7 +48,6 @@ export const Layout = ({ title, children }) => {
                   )}
                 </a>
               </Link>
-
               {status === "loading" ? (
                 "Loading"
               ) : session?.user ? (
