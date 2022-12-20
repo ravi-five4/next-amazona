@@ -72,6 +72,29 @@
   3. display order details
 
 - Create Register Screen
+
   1. add signup api
   2. create register page
   3. call api on form submit
+
+- pay order by paypal
+
+  1. add paypal button
+  2. handle payment
+  3. create backend api
+  4. update order state
+
+- create order history screen
+  1.create my order api
+  2.create order history component
+  3.fetch orders and display them
+
+- Update user profile
+  1.create profile screen
+  2.show user info
+  3.handle update user info
+
+- create admin dashboard
+  1.create admin menu
+  2.create dashboard screen
+  3.implement admin summary api
