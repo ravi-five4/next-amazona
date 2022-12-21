@@ -84,7 +84,7 @@ export default function LoginScreen() {
           <div className="mb-4">
             <button className="primary-button">Login</button>
           </div>
-          <div className="mb-4">
+          <div className="mb-4" id="register">
             Don&apos;t have an account? &nbsp;
             <Link href={`/register?redirect=${redirect || "/"}`}>Register</Link>
           </div>
