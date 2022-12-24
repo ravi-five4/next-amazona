@@ -2,12 +2,18 @@ describe("Next Justdial", () => {
   beforeEach("Justdial", function () {
     //visit home page
     cy.visit("http://localhost:3000/");
+    cy.restoreLocalStorage();
+
+    // cy.restoreLocalStorage();
+  });
+  afterEach(() => {
+    cy.saveLocalStorage();
   });
   it("Home Page ", function () {
     // check scroll
     cy.scrollTo("bottom", { easing: "swing" });
   });
-  it.skip("product Description", function () {
+  it("product Description", function () {
     //product Description 1
     cy.get(".card").eq(1).should("be.visible").click();
     cy.url().should("contain", "product");
@@ -58,5 +64,9 @@ describe("Next Justdial", () => {
     // decrease no of quantity from cart
     cy.get("tr").eq(1).find("select").select("2").should("have.value", "2");
     cy.get(".primary-button").contains("Check Out").click();
+  });
+  it("Home Page 2 ", function () {
+    // check scroll
+    cy.scrollTo("bottom", { easing: "swing" });
   });
 });

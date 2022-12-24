@@ -2,6 +2,7 @@
   "include": [
     "./node_modules/cypress",
     "cypress/**/*.js",
-    "./node_modules/cypress-testing-library"
+    "./node_modules/cypress-testing-library",
+    "cypress/support/commands.ts"
   ]
 }
